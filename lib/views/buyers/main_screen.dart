@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class MainScreen extends StatefulWidget {
@@ -10,9 +11,46 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: Center(
-        child: Text('Main Screen'),
+    return Scaffold(
+      bottomNavigationBar: BottomNavigationBar(
+        items: const [
+          BottomNavigationBarItem(
+            icon: Icon(
+              CupertinoIcons.home,
+            ),
+            label: 'HOME',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              CupertinoIcons.home,
+            ),
+            label: 'HOME',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              CupertinoIcons.home,
+            ),
+            label: 'HOME',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              CupertinoIcons.home,
+            ),
+            label: 'HOME',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              CupertinoIcons.home,
+            ),
+            label: 'HOME',
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(
+              CupertinoIcons.home,
+            ),
+            label: 'HOME',
+          ),
+        ],
       ),
     );
   }
