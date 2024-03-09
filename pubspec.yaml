@@ -78,7 +78,7 @@ flutter:
   fonts:
     - family: Brand-Bold
       fonts:
-        - asset: assets/fonts.GemunuLibre-Bold.ttf
+        - asset: assets/fonts/GemunuLibre-Bold.ttf
        
     - family: Semi-Bold
       fonts:
