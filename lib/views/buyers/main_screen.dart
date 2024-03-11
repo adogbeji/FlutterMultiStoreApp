@@ -13,6 +13,8 @@ class _MainScreenState extends State<MainScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       bottomNavigationBar: BottomNavigationBar(
+        unselectedItemColor: Colors.black,
+        selectedItemColor: Colors.yellow.shade900,
         items: const [
           BottomNavigationBarItem(
             icon: Icon(
