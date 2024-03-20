@@ -12,19 +12,39 @@ class HomeScreen extends StatelessWidget {
         left: 25,
         right: 15,
       ),
-      child: Row(
+      child: Column(
         children: [
-          const Text(
-            'What are you looking for? 👀',
-            style: TextStyle(
-              fontSize: 22,
-              fontWeight: FontWeight.bold,
-            ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              const Text(
+                'What are you looking for? 👀',
+                style: TextStyle(
+                  fontSize: 22,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              Container(
+                child: SvgPicture.asset(
+                  'assets/icons/cart.svg',
+                  width: 20,
+                ),
+              ),
+            ],
           ),
-          Container(
-            child: SvgPicture.asset(
-              'assets/icons/cart.svg',
-              width: 20,
+          
+          // SEARCH BAR
+          ClipRRect(
+            borderRadius: BorderRadius.circular(10),
+            child: const TextField(
+              decoration: InputDecoration(
+                fillColor: Colors.white,
+                filled: true,
+                hintText: 'Search For Products...',
+                border: OutlineInputBorder(
+                  borderSide: BorderSide.none,
+                ),
+              ),
             ),
           ),
         ],
