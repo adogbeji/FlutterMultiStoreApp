@@ -32,17 +32,23 @@ class HomeScreen extends StatelessWidget {
               ),
             ],
           ),
+
+          const SizedBox(height: 10,),
           
           // SEARCH BAR
           ClipRRect(
             borderRadius: BorderRadius.circular(10),
-            child: const TextField(
+            child: TextField(
               decoration: InputDecoration(
                 fillColor: Colors.white,
                 filled: true,
                 hintText: 'Search For Products...',
-                border: OutlineInputBorder(
+                border: const OutlineInputBorder(
                   borderSide: BorderSide.none,
+                ),
+                prefixIcon: Padding(
+                  padding: const EdgeInsets.all(14.0),
+                  child: SvgPicture.asset('assets/icons/search.svg', width: 10,),
                 ),
               ),
             ),
