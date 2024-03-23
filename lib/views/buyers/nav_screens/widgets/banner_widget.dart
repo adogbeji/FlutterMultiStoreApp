@@ -13,6 +13,20 @@ class BannerWidget extends StatelessWidget {
         width: double.infinity,
         decoration: BoxDecoration(
           color: Colors.yellow.shade900,
+          borderRadius: BorderRadius.circular(10),
+        ),
+        child: PageView(
+          children: const [
+            Center(
+              child: Text('Banner 1'),
+            ),
+            Center(
+              child: Text('Banner 2'),
+            ),
+            Center(
+              child: Text('Banner 3'),
+            ),
+          ],
         ),
       ),
     );
