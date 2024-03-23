@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:multi_store/views/buyers/nav_screens/widgets/welcome_text_widget.dart';
 import 'package:multi_store/views/buyers/nav_screens/widgets/search_input_widget.dart';
+import 'package:multi_store/views/buyers/nav_screens/widgets/banner_widget.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -18,10 +19,14 @@ class HomeScreen extends StatelessWidget {
         children: [
           WelcomeText(),
 
-          SizedBox(height: 10,),
-          
+          SizedBox(
+            height: 10,
+          ),
+
           // SEARCH BAR
           SearchInputWidget(),
+
+          BannerWidget(),
         ],
       ),
     );
