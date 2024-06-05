@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "647264549373",
+    "project_id": "multi-store-a9a8b",
+    "storage_bucket": "multi-store-a9a8b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:647264549373:android:55b69aaf6beae5532c8194",
+        "android_client_info": {
+          "package_name": "com.akponasa.multi_store"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDPNm0fuKmUMRofSj_VWH8fi0L6grkxuQw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
