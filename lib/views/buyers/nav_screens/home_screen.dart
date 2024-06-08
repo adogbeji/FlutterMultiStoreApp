@@ -9,14 +9,14 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Column(
+    return Column(
       children: [
-        WelcomeText(),
+        const WelcomeText(),
     
-        SizedBox(height: 14,),
+        const SizedBox(height: 14,),
     
         // SEARCH BAR 
-        SearchInputWidget(),
+        const SearchInputWidget(),
         BannerWidget(),
       ],
     );
