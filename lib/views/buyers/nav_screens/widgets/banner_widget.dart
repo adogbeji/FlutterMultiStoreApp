@@ -8,17 +8,27 @@ class BannerWidget extends StatefulWidget {
 
 class _BannerWidgetState extends State<BannerWidget> {
   // const BannerWidget({super.key});
-  final FirebaseFirestore _firestore = FirebaseFirestore.instance; // Stores cloud_firestore package
-  final List _bannerImages = [];  // Stores banner images
+  final FirebaseFirestore _firestore =
+      FirebaseFirestore.instance; // Stores cloud_firestore package
+  final List _bannerImages = []; // Stores banner images
 
   // RETRIEVES BANNERS FROM FIRESTORE DATABASE
   getBanners() {
-    return _firestore
-        .collection('banners')
-        .get()
-        .then((QuerySnapshot querySnapshot) {
-          querySnapshot.docs.forEach((doc) {});
+    return _firestore.collection('banners').get().then(
+      (QuerySnapshot querySnapshot) {
+        querySnapshot.docs.forEach((doc) {
+          setState(() {
+            _bannerImages.add(doc['image']);
+          });
         });
+      },
+    );
+  }
+
+  @override
+  void initState() {
+    getBanners(); // FUNCTION CALLED AS SOON AS PAGE GETS LOADED
+    super.initState();
   }
 
   @override
@@ -32,18 +42,11 @@ class _BannerWidgetState extends State<BannerWidget> {
           color: Colors.yellow.shade900,
           borderRadius: BorderRadius.circular(10),
         ),
-        child: PageView(
-          children: const [
-            Center(
-              child: Text('BANNER 1'),
-            ),
-            Center(
-              child: Text('BANNER 2'),
-            ),
-            Center(
-              child: Text('BANNER 3'),
-            ),
-          ],
+        child: PageView.builder(
+          itemCount: _bannerImages.length,
+          itemBuilder: (context, index) {
+            return Image.network(_bannerImages[index]);
+          },
         ),
       ),
     );
