@@ -4,7 +4,12 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+import 'package:multi_store/secrets/secret_keys.dart';
+
 import 'package:multi_store/views/buyers/main_screen.dart';
+
+// SECRET KEYS
+final secrets = SecretKeys();
 
 void main() async {
   WidgetsFlutterBinding
@@ -12,12 +17,12 @@ void main() async {
 
   Platform.isAndroid
       ? await Firebase.initializeApp(
-          options: const FirebaseOptions(
-              apiKey: 'AIzaSyDPNm0fuKmUMRofSj_VWH8fi0L6grkxuQw',
-              appId: '1:647264549373:android:55b69aaf6beae5532c8194',
-              messagingSenderId: '647264549373',
-              projectId: 'multi-store-a9a8b',
-              storageBucket: 'gs://multi-store-a9a8b.appspot.com'),
+          options: FirebaseOptions(
+              apiKey: secrets.akiKey,
+              appId: secrets.appId,
+              messagingSenderId: secrets.messagingSenderId,
+              projectId: secrets.projectId,
+              storageBucket: secrets.storageBucket),
         )
       : await Firebase.initializeApp();
   runApp(const MyApp());
