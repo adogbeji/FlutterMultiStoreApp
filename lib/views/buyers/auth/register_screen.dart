@@ -5,9 +5,19 @@ class RegisterScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       body: Center(
-        child: Text('Register Screen'),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            const Text('Create Account', style: TextStyle(fontSize: 20,),),
+
+            CircleAvatar(
+              radius: 64,
+              backgroundColor: Colors.yellow.shade900,
+            ),
+          ],
+        ),
       ),
     );
   }

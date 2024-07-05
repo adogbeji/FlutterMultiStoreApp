@@ -7,6 +7,7 @@ import 'package:flutter/services.dart';
 import 'package:multi_store/secrets/secret_keys.dart';
 
 import 'package:multi_store/views/buyers/main_screen.dart';
+import 'package:multi_store/views/buyers/auth/register_screen.dart';
 
 // SECRET KEYS
 final secrets = SecretKeys();
@@ -48,7 +49,8 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
       ),
-      home: const MainScreen(),
+      // home: const MainScreen(),
+      home: const RegisterScreen(),
     );
   }
 }
