@@ -16,6 +16,12 @@ class RegisterScreen extends StatelessWidget {
               radius: 64,
               backgroundColor: Colors.yellow.shade900,
             ),
+
+            TextFormField(
+              decoration: InputDecoration(
+                labelText: 'Email',
+              ),
+            ),
           ],
         ),
       ),
