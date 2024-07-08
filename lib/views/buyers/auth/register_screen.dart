@@ -82,6 +82,17 @@ class RegisterScreen extends StatelessWidget {
                 ),
               ),
             ),
+
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                const Text('Already have an account?'),
+                TextButton(
+                  onPressed: () {},
+                  child: const Text('Log in'),
+                ),
+              ],
+            ),
           ],
         ),
       ),
