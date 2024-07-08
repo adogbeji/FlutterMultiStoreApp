@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:multi_store/views/buyers/auth/login_screen.dart';
+
 class RegisterScreen extends StatelessWidget {
   const RegisterScreen({super.key});
 
@@ -88,7 +90,11 @@ class RegisterScreen extends StatelessWidget {
               children: [
                 const Text('Already have an account?'),
                 TextButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    Navigator.push(context, MaterialPageRoute(builder: (context) {
+                      return const LoginScreen();
+                    }),);
+                  },
                   child: const Text('Log in'),
                 ),
               ],
