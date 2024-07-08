@@ -8,6 +8,7 @@ import 'package:multi_store/secrets/secret_keys.dart';
 
 import 'package:multi_store/views/buyers/main_screen.dart';
 import 'package:multi_store/views/buyers/auth/register_screen.dart';
+import 'package:multi_store/views/buyers/auth/login_screen.dart';
 
 // SECRET KEYS
 final secrets = SecretKeys();
@@ -50,7 +51,7 @@ class MyApp extends StatelessWidget {
         useMaterial3: true,
       ),
       // home: const MainScreen(),
-      home: const RegisterScreen(),
+      home: const LoginScreen(),
     );
   }
 }
