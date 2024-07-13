@@ -3,7 +3,15 @@ import 'package:flutter/material.dart';
 import 'package:multi_store/views/buyers/auth/login_screen.dart';
 
 class RegisterScreen extends StatelessWidget {
-  const RegisterScreen({super.key});
+  // const RegisterScreen({super.key});
+
+  late String email;
+
+  late String fullName;
+
+  late String phoneNumber;
+
+  late String password;
 
   @override
   Widget build(BuildContext context) {
@@ -28,6 +36,9 @@ class RegisterScreen extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(13.0),
               child: TextFormField(
+                onChanged: (value) {
+                  email = value;
+                },
                 decoration: const InputDecoration(
                   labelText: 'Email',
                 ),
@@ -38,6 +49,9 @@ class RegisterScreen extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(13.0),
               child: TextFormField(
+                onChanged: (value) {
+                  fullName = value;
+                },                
                 decoration: const InputDecoration(
                   labelText: 'Name',
                 ),
@@ -48,6 +62,9 @@ class RegisterScreen extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(13.0),
               child: TextFormField(
+                onChanged: (value) {
+                  phoneNumber = value;
+                },
                 decoration: const InputDecoration(
                   labelText: 'Phone Number',
                 ),
@@ -58,6 +75,9 @@ class RegisterScreen extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(13.0),
               child: TextFormField(
+                onChanged: (value) {
+                  password = value;
+                },
                 decoration: const InputDecoration(
                   labelText: 'Password',
                 ),
