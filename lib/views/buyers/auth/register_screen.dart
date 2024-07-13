@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:multi_store/controllers/auth_controller.dart';
 
 import 'package:multi_store/views/buyers/auth/login_screen.dart';
 
 class RegisterScreen extends StatelessWidget {
   // const RegisterScreen({super.key});
+
+  final AuthController _authController = AuthController();  // Stores AuthController class
 
   late String email;
 
@@ -12,6 +15,18 @@ class RegisterScreen extends StatelessWidget {
   late String phoneNumber;
 
   late String password;
+
+
+  // Calls function in AuthController class
+  _signUpUser() async {
+    String res = await _authController.signUpUsers(email, fullName, phoneNumber, password);
+
+    if (res != 'success') {
+      print(res);
+    } else {
+      print('Good');
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
