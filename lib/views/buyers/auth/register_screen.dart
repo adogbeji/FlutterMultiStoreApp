@@ -23,13 +23,9 @@ class RegisterScreen extends StatelessWidget {
   // Calls function in AuthController class
   _signUpUser() async {
     if (_formKey.currentState!.validate()) {
-      String res = await _authController.signUpUsers(email, fullName, phoneNumber, password);
-
-      if (res != 'success') {
-        print(res);
-      } else {
-        print('Good');
-      }
+      await _authController.signUpUsers(email, fullName, phoneNumber, password);
+    } else {
+      print('Error occurred!');
     }
   }
 
