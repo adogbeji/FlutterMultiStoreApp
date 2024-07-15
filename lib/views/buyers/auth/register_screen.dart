@@ -9,6 +9,8 @@ class RegisterScreen extends StatelessWidget {
 
   final AuthController _authController = AuthController();  // Stores AuthController class
 
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();  // Form key
+
   late String email;
 
   late String fullName;
@@ -20,12 +22,14 @@ class RegisterScreen extends StatelessWidget {
 
   // Calls function in AuthController class
   _signUpUser() async {
-    String res = await _authController.signUpUsers(email, fullName, phoneNumber, password);
+    if (_formKey.currentState!.validate()) {
+      String res = await _authController.signUpUsers(email, fullName, phoneNumber, password);
 
-    if (res != 'success') {
-      print(res);
-    } else {
-      print('Good');
+      if (res != 'success') {
+        print(res);
+      } else {
+        print('Good');
+      }
     }
   }
 
@@ -35,6 +39,7 @@ class RegisterScreen extends StatelessWidget {
       body: Center(
         child: SingleChildScrollView(
           child: Form(
+            key: _formKey,
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
