@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:multi_store/controllers/auth_controller.dart';
+
+import 'package:multi_store/utils/show_snackBar.dart';
 
 import 'package:multi_store/views/buyers/auth/login_screen.dart';
 
-class RegisterScreen extends StatelessWidget {
-  // const RegisterScreen({super.key});
+class RegisterScreen extends StatefulWidget {
+  @override
+  State<RegisterScreen> createState() => _RegisterScreenState();
+}
 
+class _RegisterScreenState extends State<RegisterScreen> {  
   final AuthController _authController = AuthController();  // Stores AuthController class
 
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();  // Form key
@@ -19,13 +23,12 @@ class RegisterScreen extends StatelessWidget {
 
   late String password;
 
-
   // Calls function in AuthController class
   _signUpUser() async {
     if (_formKey.currentState!.validate()) {
       await _authController.signUpUsers(email, fullName, phoneNumber, password);
     } else {
-      print('Error occurred!');
+      return showSnack(context, 'Fields must not be empty!');
     }
   }
 
