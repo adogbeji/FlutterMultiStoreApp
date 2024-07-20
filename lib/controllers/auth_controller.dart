@@ -21,6 +21,8 @@ class AuthController {
           'email': email,
           'fullName': fullName,
           'phoneNumber': phoneNumber,
+          'buyerId': cred.user!.uid,
+          'address': '',
         });
 
         res = 'Success';
