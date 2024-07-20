@@ -26,7 +26,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
   // Calls function in AuthController class
   _signUpUser() async {
     if (_formKey.currentState!.validate()) {
-      await _authController.signUpUsers(email, fullName, phoneNumber, password);
+      await _authController.signUpUsers(email, fullName, phoneNumber, password).whenComplete(() {
+        setState(() {
+          _formKey.currentState!.reset();  // Clears input fields
+        });
+      });
+
       return showSnack(context, 'Congrats, your account has been created!');
     } else {
       return showSnack(context, 'Fields must not be empty!');
