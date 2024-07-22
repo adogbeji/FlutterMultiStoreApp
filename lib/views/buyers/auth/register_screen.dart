@@ -161,8 +161,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       color: Colors.yellow.shade900,
                       borderRadius: BorderRadius.circular(10),
                     ),
-                    child: const Center(
-                      child: Text(
+                    child: Center(
+                      child: _isLoading ? const CircularProgressIndicator(
+                        color: Colors.white,
+                      ):
+                       const Text(
                         'Register',
                         style: TextStyle(
                           fontSize: 19,
