@@ -23,17 +23,26 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
   late String password;
 
+  bool _isLoading = false;
+
   // Calls function in AuthController class
   _signUpUser() async {
+    setState(() {
+      _isLoading = true;
+    });
     if (_formKey.currentState!.validate()) {
       await _authController.signUpUsers(email, fullName, phoneNumber, password).whenComplete(() {
         setState(() {
           _formKey.currentState!.reset();  // Clears input fields
+          _isLoading = false;
         });
       });
 
       return showSnack(context, 'Congrats, your account has been created!');
     } else {
+      setState(() {
+        _isLoading = false;
+      });
       return showSnack(context, 'Fields must not be empty!');
     }
   }
