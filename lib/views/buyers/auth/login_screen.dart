@@ -7,6 +7,8 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   // const LoginScreen({super.key});
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();  // Form key
+  
   late String email;
 
   late String password;
@@ -30,6 +32,13 @@ class _LoginScreenState extends State<LoginScreen> {
             Padding(
               padding: const EdgeInsets.all(13.0),
               child: TextFormField(
+                validator: (value) {
+                  if (value!.isEmpty) {
+                    return 'Email must not be empty!';
+                  } else {
+                    return null;
+                  }
+                },
                 onChanged: (value) {
                   email = value;
                 },
@@ -43,6 +52,13 @@ class _LoginScreenState extends State<LoginScreen> {
             Padding(
               padding: const EdgeInsets.all(13.0),
               child: TextFormField(
+                validator: (value) {
+                      if (value!.isEmpty) {
+                        return 'Password must not be empty!';
+                      } else {
+                        return null;
+                      }
+                    },
                 onChanged: (value) {
                   password = value;
                 },
