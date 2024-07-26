@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:multi_store/controllers/auth_controller.dart';
+
 class LoginScreen extends StatefulWidget {
   @override
   State<LoginScreen> createState() => _LoginScreenState();
@@ -7,11 +9,18 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
   // const LoginScreen({super.key});
+  final AuthController _authController = AuthController();  // Stores AuthController class
+
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();  // Form key
 
   late String email;
 
   late String password;
+
+  // Calls function in AuthController class
+  _loginUsers() {
+    if (_formKey.currentState!.validate()) {}
+  }
 
   @override
   Widget build(BuildContext context) {
