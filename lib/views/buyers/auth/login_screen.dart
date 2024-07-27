@@ -22,6 +22,7 @@ class _LoginScreenState extends State<LoginScreen> {
   _loginUsers() async {
     if (_formKey.currentState!.validate()) {
       await _authController.loginUsers(email, password);
+      return showSnack(context, 'You are now logged in!');
     } else {
       return showSnack(context, 'Fields must not be empty!');
     }
