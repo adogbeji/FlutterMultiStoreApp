@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:multi_store/controllers/auth_controller.dart';
+import 'package:multi_store/utils/show_snackBar.dart';
 
 class LoginScreen extends StatefulWidget {
   @override
@@ -18,8 +19,12 @@ class _LoginScreenState extends State<LoginScreen> {
   late String password;
 
   // Calls function in AuthController class
-  _loginUsers() {
-    if (_formKey.currentState!.validate()) {}
+  _loginUsers() async {
+    if (_formKey.currentState!.validate()) {
+      await _authController.loginUsers(email, password);
+    } else {
+      return showSnack(context, 'Fields must not be empty!');
+    }
   }
 
   @override
@@ -82,19 +87,24 @@ class _LoginScreenState extends State<LoginScreen> {
               const SizedBox(height: 20,),
               
               // LOGIN BUTTON
-              Container(
-                width: MediaQuery.of(context).size.width - 40,
-                height: 50,
-                decoration: BoxDecoration(
-                  color: Colors.yellow.shade900,
-                  borderRadius: BorderRadius.circular(10),
-                ),
-                child: const Center(
-                  child: Text(
-                    'Log In',
-                    style: TextStyle(
-                      color: Colors.white,
-                      letterSpacing: 5,
+              InkWell(
+                onTap: () {
+                  _loginUsers();
+                },
+                child: Container(
+                  width: MediaQuery.of(context).size.width - 40,
+                  height: 50,
+                  decoration: BoxDecoration(
+                    color: Colors.yellow.shade900,
+                    borderRadius: BorderRadius.circular(10),
+                  ),
+                  child: const Center(
+                    child: Text(
+                      'Log In',
+                      style: TextStyle(
+                        color: Colors.white,
+                        letterSpacing: 5,
+                      ),
                     ),
                   ),
                 ),
