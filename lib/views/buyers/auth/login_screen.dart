@@ -23,7 +23,7 @@ class _LoginScreenState extends State<LoginScreen> {
   // Calls function in AuthController class
   _loginUsers() async {
     if (_formKey.currentState!.validate()) {
-      await _authController.loginUsers(email, password);
+      String res = await _authController.loginUsers(email, password);
       // return showSnack(context, 'You are now logged in!');
       return Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
         return const MainScreen();
