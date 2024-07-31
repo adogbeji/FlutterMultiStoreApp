@@ -24,10 +24,16 @@ class _LoginScreenState extends State<LoginScreen> {
   _loginUsers() async {
     if (_formKey.currentState!.validate()) {
       String res = await _authController.loginUsers(email, password);
-      // return showSnack(context, 'You are now logged in!');
-      return Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
-        return const MainScreen();
-      }),);
+
+      if (res == 'Success') {
+        // return showSnack(context, 'You are now logged in!');
+        return Navigator.pushReplacement(context, MaterialPageRoute(builder: (context) {
+          return const MainScreen();
+          }),
+        );
+      } else {
+        return showSnack(context, res);
+      }
     } else {
       return showSnack(context, 'Fields must not be empty!');
     }
