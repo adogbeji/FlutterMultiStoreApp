@@ -1,3 +1,4 @@
+// import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:multi_store/controllers/auth_controller.dart';
 
@@ -63,10 +64,24 @@ class _RegisterScreenState extends State<RegisterScreen> {
                     fontSize: 20,
                   ),
                 ),
-            
-                CircleAvatar(
-                  radius: 64,
-                  backgroundColor: Colors.yellow.shade900,
+
+                Stack(
+                  children: [
+                    CircleAvatar(
+                      radius: 64,
+                      backgroundColor: Colors.yellow.shade900,
+                    ),
+
+                    Positioned(
+                      right: -3,
+                      top: 1,
+                      child: IconButton(
+                        onPressed: () {},
+                        // icon: const Icon(CupertinoIcons.camera),
+                        icon: const Icon(Icons.camera_alt),
+                      ),
+                    ),
+                  ],
                 ),
             
                 // EMAIL INPUT FIELD
