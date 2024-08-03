@@ -1,9 +1,11 @@
 // import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+
+import 'package:image_picker/image_picker.dart';
+
 import 'package:multi_store/controllers/auth_controller.dart';
-
 import 'package:multi_store/utils/show_snackBar.dart';
-
 import 'package:multi_store/views/buyers/auth/login_screen.dart';
 
 class RegisterScreen extends StatefulWidget {
@@ -46,6 +48,10 @@ class _RegisterScreenState extends State<RegisterScreen> {
       });
       return showSnack(context, 'Fields must not be empty!');
     }
+  }
+
+  selectGalleryImage() async {
+    Uint8List _image = await _authController.pickProfileImage(ImageSource.gallery);
   }
 
   @override
