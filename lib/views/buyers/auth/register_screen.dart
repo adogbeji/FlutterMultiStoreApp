@@ -28,6 +28,8 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
   bool _isLoading = false;
 
+  Uint8List? _image;  // Stores image
+
   // Calls function in AuthController class
   _signUpUser() async {
     setState(() {
@@ -51,7 +53,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
   }
 
   selectGalleryImage() async {
-    Uint8List _image = await _authController.pickProfileImage(ImageSource.gallery);
+    Uint8List im = await _authController.pickProfileImage(ImageSource.gallery);  // Stores picked image
+
+    setState(() {
+      _image = im;
+    });
   }
 
   @override
@@ -82,7 +88,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       right: -3,
                       top: 1,
                       child: IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          selectGalleryImage();
+                        },
                         // icon: const Icon(CupertinoIcons.camera),
                         icon: const Icon(Icons.camera_alt),
                       ),
