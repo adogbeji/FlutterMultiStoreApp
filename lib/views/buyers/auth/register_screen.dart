@@ -89,7 +89,11 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
                 Stack(
                   children: [
-                    CircleAvatar(
+                    _image != null ? CircleAvatar(
+                      radius: 64,
+                      backgroundColor: Colors.yellow.shade900,
+                      backgroundImage: MemoryImage(_image!),
+                    ): CircleAvatar(
                       radius: 64,
                       backgroundColor: Colors.yellow.shade900,
                     ),
