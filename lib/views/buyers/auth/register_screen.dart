@@ -51,9 +51,19 @@ class _RegisterScreenState extends State<RegisterScreen> {
       return showSnack(context, 'Fields must not be empty!');
     }
   }
-
+  
+  // Picks image from phone gallery
   selectGalleryImage() async {
     Uint8List im = await _authController.pickProfileImage(ImageSource.gallery);  // Stores picked image
+
+    setState(() {
+      _image = im;
+    });
+  }
+
+  // Captures image with device camera
+  selectCameraImage() async {
+    Uint8List im = await _authController.pickProfileImage(ImageSource.camera);  // Stores picked image
 
     setState(() {
       _image = im;

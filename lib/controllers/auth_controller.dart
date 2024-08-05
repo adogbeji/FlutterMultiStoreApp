@@ -7,7 +7,7 @@ class AuthController {
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;  // Stores cloud_firestore package
   
   
-  // Picks image from phone gallery
+  // Picks image from phone gallery or device camera
   pickProfileImage(ImageSource source) async {
     final ImagePicker _imagePicker = ImagePicker();  // Stores image_picker package
 
