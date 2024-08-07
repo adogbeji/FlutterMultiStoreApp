@@ -1,11 +1,29 @@
+import 'package:flutter/foundation.dart';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 
 class AuthController {
   final FirebaseAuth _auth = FirebaseAuth.instance;  // Stores firebase_auth package
   final FirebaseFirestore _firestore = FirebaseFirestore.instance;  // Stores cloud_firestore package
+  final FirebaseStorage _storage = FirebaseStorage.instance;  // Stores firebase_storage package
   
+  
+  // Uploads profile picture to Firebase Storage
+  _uploadProfileImageToStorage(Uint8List? image) async {
+    Reference ref = _storage.ref()
+                            .child('profilePics')
+                            .child(_auth.currentUser!.uid);
+    
+    UploadTask uploadTask = ref.putData(image!);  // Stores result of uploaded image
+    
+    TaskSnapshot snapshot = await uploadTask;
+    String downloadURL = await snapshot.ref.getDownloadURL();  // Stores image download URL
+
+    return downloadURL;
+  }
   
   // Picks image from phone gallery or device camera
   pickProfileImage(ImageSource source) async {
