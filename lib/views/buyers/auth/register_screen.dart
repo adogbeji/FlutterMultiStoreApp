@@ -36,7 +36,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
       _isLoading = true;
     });
     if (_formKey.currentState!.validate()) {
-      await _authController.signUpUsers(email, fullName, phoneNumber, password).whenComplete(() {
+      await _authController.signUpUsers(email, fullName, phoneNumber, password, _image).whenComplete(() {
         setState(() {
           _formKey.currentState!.reset();  // Clears input fields
           _isLoading = false;

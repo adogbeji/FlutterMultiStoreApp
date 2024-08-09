@@ -58,6 +58,7 @@ class AuthController {
           'phoneNumber': phoneNumber,
           'buyerId': cred.user!.uid,
           'address': '',
+          'profileImage': profileImageURL,
         });
 
         res = 'Success';
