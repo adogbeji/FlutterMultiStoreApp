@@ -39,17 +39,18 @@ class AuthController {
   }
 
   // Creates new users
-  Future<String> signUpUsers(String email, String fullName, String phoneNumber, String password) async {
+  Future<String> signUpUsers(String email, String fullName, String phoneNumber, String password, Uint8List? image) async {
     String res = 'Some error occurred';
 
     try {
-      if (email.isNotEmpty && fullName.isNotEmpty && phoneNumber.isNotEmpty && password.isNotEmpty) {
+      if (email.isNotEmpty && fullName.isNotEmpty && phoneNumber.isNotEmpty && password.isNotEmpty && image != null) {
         // Create New User
-
         UserCredential cred = await _auth.createUserWithEmailAndPassword(
           email: email, 
           password: password
         );  // Stores user credentials
+
+        String profileImageURL = await _uploadProfileImageToStorage(image);  // Stores image download URL
       
         await _firestore.collection('buyers').doc(cred.user!.uid).set({
           'email': email,
