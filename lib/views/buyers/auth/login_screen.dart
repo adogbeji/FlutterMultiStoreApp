@@ -90,12 +90,12 @@ class _LoginScreenState extends State<LoginScreen> {
                 child: TextFormField(
                   obscureText: true,
                   validator: (value) {
-                        if (value!.isEmpty) {
-                          return 'Password must not be empty!';
-                        } else {
-                          return null;
-                        }
-                      },
+                    if (value!.isEmpty) {
+                      return 'Password must not be empty!';
+                    } else {
+                      return null;
+                    }
+                  },
                   onChanged: (value) {
                     password = value;
                   },
