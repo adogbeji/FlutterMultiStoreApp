@@ -28,7 +28,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
   bool _isLoading = false;
 
-  Uint8List? _image;  // Stores image
+  Uint8List? _image;  // Stores picked image
 
   // Calls function in AuthController class
   _signUpUser() async {
@@ -63,7 +63,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
   // Captures image with device camera
   selectCameraImage() async {
-    Uint8List im = await _authController.pickProfileImage(ImageSource.camera);  // Stores picked image
+    Uint8List im = await _authController.pickProfileImage(ImageSource.camera);  // Stores captured image
 
     setState(() {
       _image = im;
