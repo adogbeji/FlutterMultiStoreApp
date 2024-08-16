@@ -1,5 +1,7 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class BannerWidget extends StatefulWidget {
   @override
@@ -47,9 +49,14 @@ class _BannerWidgetState extends State<BannerWidget> {
           itemBuilder: (context, index) {
             return ClipRRect(
               borderRadius: BorderRadius.circular(10),
-              child: Image.network(
-                _bannerImages[index],
-                fit: BoxFit.cover,
+              // child: Image.network(
+              //   _bannerImages[index],
+              //   fit: BoxFit.cover,
+              // ),
+              child: CachedNetworkImage(
+                imageUrl: _bannerImages[index],
+                placeholder: (context, url) => const CircularProgressIndicator(),
+                errorWidget: (context, url, error) => const Icon(Icons.error),
               ),
             );
           },
