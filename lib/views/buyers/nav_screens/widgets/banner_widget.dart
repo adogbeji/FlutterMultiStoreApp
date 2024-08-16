@@ -55,6 +55,7 @@ class _BannerWidgetState extends State<BannerWidget> {
               // ),
               child: CachedNetworkImage(
                 imageUrl: _bannerImages[index],
+                fit: BoxFit.cover,
                 placeholder: (context, url) => const CircularProgressIndicator(),
                 errorWidget: (context, url, error) => const Icon(Icons.error),
               ),
