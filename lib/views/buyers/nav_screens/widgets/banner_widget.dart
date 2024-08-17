@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:shimmer_animation/shimmer_animation.dart';
 
 class BannerWidget extends StatefulWidget {
   @override
@@ -56,7 +57,19 @@ class _BannerWidgetState extends State<BannerWidget> {
               child: CachedNetworkImage(
                 imageUrl: _bannerImages[index],
                 fit: BoxFit.cover,
-                placeholder: (context, url) => const CircularProgressIndicator(),
+                // placeholder: (context, url) => const CircularProgressIndicator(),
+                placeholder: (context, url) => Shimmer(
+                  duration: Duration(seconds: 3), //Default value
+                  interval: Duration(
+                      seconds: 10), //Default value: Duration(seconds: 0)
+                  color: Colors.white, //Default value
+                  colorOpacity: 0, //Default value
+                  enabled: true, //Default value
+                  direction: ShimmerDirection.fromLTRB(), //Default Value
+                  child: Container(
+                    color: Colors.white,
+                  ),
+                ),
                 errorWidget: (context, url, error) => const Icon(Icons.error),
               ),
             );
